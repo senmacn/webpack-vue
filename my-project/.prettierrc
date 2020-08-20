@@ -1,0 +1,13 @@
+{
+  "eslintIntegration": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "bracketSpacing": true,
+  "prettier.semi": true,
+  "semi": true,
+  "prettier.trailingComma": "es6",
+  "arrowParens": "always",
+
+}

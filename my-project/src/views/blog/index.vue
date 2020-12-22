@@ -1,51 +1,70 @@
 <template>
   <el-container class="s-blog-container">
-    <el-aside width="200px">
-      <el-menu class="el-menu-vertical blog-aside-menu">
-        <el-menu-item index="1">
-          <i class="el-icon-s-home"></i>
-          <span slot="title">主页</span>
-        </el-menu-item>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">功能</span>
-        </el-menu-item>
-        <el-menu-item index="3">
-          <i class="el-icon-setting"></i>
-          <span slot="title">设置</span>
-        </el-menu-item>
-      </el-menu>
-    </el-aside>
-
-    <el-container>
-      <el-header
-        class="s-blog-header"
-        height="200px">
-
+    <el-header
+      class="blog-header"
+      height="150px"
+    >
+    </el-header>
+    <el-main class="blog-main">
+      <el-header class="menu-container">
+        <el-menu
+        class="blog-menu"
+          mode="horizontal"
+          default-active="0"
+          @select="handleSelectBlogTypes"
+        >
+            <el-menu-item
+              v-for="(item, index) in BLOG_TYPES"
+              :index="String(index)"
+              :key="index"
+            >
+              {{item.title}}
+            </el-menu-item>
+        </el-menu>
       </el-header>
-      <el-main height="auto">
+      <el-main class="blog-content">
 
       </el-main>
-    </el-container>
-
+    </el-main>
   </el-container>
 </template>
 
 <script>
+import { BLOG_TYPES } from '../../settings/blogSettings';
+
 export default {
   name: 'Blog',
   data () {
     return {
+      BLOG_TYPES
     };
+  },
+  methods: {
+    handleSelectBlogTypes (index) {
+      // const type = this.BLOG_TYPES[index.type];
+    }
   }
 };
 </script>
 
 <style>
-.s-blog-header {
+.s-blog-container {}
+.blog-header {
   background: url('../../assets/images/back1.jpg');
+  background-size: cover;
 }
-.blog-aside-menu {
-  background-color: '#545c64';
+.blog-main {
+  max-width: 1000px;
+  min-width: 600px;
+  width: 70vw;
+  margin: 0 auto;
+  margin-top: 20px;
+  border: 1px solid black;
+}
+.blog-menu {
+  display: flex;
+}
+.blog-menu li {
+  flex: 1;
 }
 </style>

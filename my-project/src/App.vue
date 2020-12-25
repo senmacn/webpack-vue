@@ -1,12 +1,16 @@
 <template>
   <div id="app">
+    <profile />
     <router-view />
   </div>
 </template>
 
 <script>
+import profile from './components/profile.vue';
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {profile}
 };
 </script>
 
